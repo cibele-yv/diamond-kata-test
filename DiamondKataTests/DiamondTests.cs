@@ -5,11 +5,17 @@ using Xunit;
 namespace DiamondKataTests
 {
     public class DiamondTests
-    {   
-        [Fact]
-        public void Diamond_GivenInvalidInput_ThrowsArgumentException()
+    {
+        [Theory]
+        [InlineData('1')]
+        [InlineData('a')]
+        [InlineData('&')]
+        public void Diamond_GivenInvalidInput_ThrowsArgumentException(char input)
         {
-            Assert.Throws<ArgumentException>(() => Diamond.Create('1'));
+            var actualDiamond = Diamond.Create(input);
+            var expectedDiamond = "";
+
+            Assert.Equal(actualDiamond, expectedDiamond);
         }
 
         [Theory]
@@ -22,8 +28,6 @@ namespace DiamondKataTests
             var actualDiamond = Diamond.Create(input);
 
             Assert.Equal(expectedDiamond, actualDiamond);
-
         }
-
     }
 }

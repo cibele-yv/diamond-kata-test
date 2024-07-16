@@ -6,7 +6,8 @@
         {
             if (letter < 'A' || letter > 'Z')
             {
-                throw new ArgumentException("Input must be a capital letter A-Z");
+                Console.WriteLine("Input must be a capital letter A-Z");
+                return "";
             }
 
             int n = letter - 'A' + 1;
